@@ -1,0 +1,819 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%saPACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+% remove aspectratio for default 4:3 
+\documentclass[aspectratio=169]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{listings} % Allows code listings
+\usepackage{color}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=t,
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+ 
+\lstset{style=mystyle}
+
+%----------------------------------------------------------------------------------------
+%mystyleTITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Industrial I/O]{Industrial I/O Subsystem: The Home of Linux Sensors} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Daniel Baluta} % Your name
+\institute[Intel] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Intel \\ % Your institution for the title page
+\medskip
+\textit{daniel.baluta@intel.com} % Your email address
+
+}
+\date{October 5, 2015} % Date, can be changed to a custom date
+
+\begin{document}
+
+
+\begin{frame}
+\titlepage % Print the title page as the first slide
+\end{frame}
+
+\begin{frame}
+\begin{equation*}
+X - \mu = L F + \epsilon
+\end{equation*}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{Overview} % Print the title page as the first slide
+%\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+%\end{frame}
+
+%----------------------------------------------------------------------------------------
+%framePRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+%------------------------------------------------
+%\section{First Section} % Sections can be created in order to organize your presentation into discrete blocks, all sections and subsections are automatically printed in the table of contents as an overview of the talk
+%------------------------------------------------
+
+%\subsection{Subsection Example} % A subsection can be created just before a set of slides with a common theme to further break down your presentation into chunks
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Why Industrial I/O?}
+\begin{itemize}
+\item past - industrial process control or scientific research
+\item present - all kinds of devices: phones, tablets, laptops, TVs
+\item fill the gap between input and hwmon subsystems
+    \begin{itemize}
+    \item \texttt{hwmon} - low sample rate sensors used to control/monitor the system itself (fan speed control, temperature)
+        \item \texttt{input} - human interaction input devices (keyboard, mouse, touchscreen)
+    \end{itemize}
+    \item Industrial I/O (IIO) - de facto standard for sensors
+    \item many drivers in Android use input for sensors - this should be changed
+\end{itemize}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{What is Industrial I/O?}
+%\begin{itemize}
+%\item unified framework for different types of embedded sensors
+%\end{itemize}
+%\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{What is Industrial I/O?}
+\begin{itemize}
+    \item devices that in some sense are Analog to Digital Converters (\texttt{ADC})
+    \item support for Digital to Analog converters (\texttt{DACs})
+    \item unified framework for different types of embedded sensors
+    \item started by Jonathan Cameron
+    \item in staging from 2.6.32 in 2009
+    \item merged in Linux kernel from 3.15 in 2012
+    \item currently, in 4.3-rc3 there are around 184 IIO drivers
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O supported sensor types}
+\begin{itemize}
+    \item accelerometers
+    \item magnetometers
+    \item gyroscopes
+    \item pressure
+    \item humidity
+    \item temperature
+    \item light and proximity
+    \item \textcolor{red}{activity}
+    \item \textcolor{red}{chemical}
+    \item \textcolor{red}{heart rate monitors}
+    \item \textcolor{red}{potentiometers and rheostats}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Industrial I/O architecture overview}
+%\begin{figure}
+%\includegraphics[width=0.55\linewidth]{overview9.png}
+%\end{figure}
+%\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O devices}
+\begin{itemize}
+    \item an IIO device is a representation of a single hardware sensor
+    \item \texttt{struct iio\_dev}
+    \begin{itemize}
+        \item operating modes
+        \begin{itemize}
+        \item \texttt{DIRECT}, \texttt{BUFFER\_SOFTWARE}, \texttt{BUFFER\_HARDWARE}, \texttt{BUFFER\_TRIGGERED}
+        \end{itemize}
+        \item chrdev
+        \item sysfs attributes
+        \item channels
+        \item buffers
+        \item triggers
+        \item events
+    \end{itemize}
+    \item \texttt{iio\_device\_alloc} / \texttt{iio\_device\_free}
+    \item \texttt{iio\_device\_register} / \texttt{iio\_device\_unregister}
+%    \item usually used with their resource managed versions
+\end{itemize}
+\end{frame}
+%------------------------------------------------
+
+
+\begin{frame}
+\frametitle{Industrial I/O interface with user space}
+\begin{itemize}
+    \item sysfs
+    \begin{itemize}
+        \item \texttt{Documentation/ABI/testing/sysfs-bus-iio}
+        \item used for configuration and raw data readings
+        \item \texttt{/sys/bus/iio/devices/iio:deviceX}
+        \begin{itemize}
+            \item \texttt{name} - usually part number
+            \item \texttt{dev} - device node id (major:minor)
+            \item device configuration attributes (\texttt{sampling\_frequency\_available})
+            \item data channel access attributes (\texttt{in\_resistance\_raw})
+            \item \texttt{buffer/}, \texttt{events/}, \texttt{trigger/}, \texttt{scan\_elements/}
+        \end{itemize}
+        \item \texttt{/sys/bus/iio/devices/iio:triggerY}
+    \end{itemize}
+    \item character device - \texttt{/dev/iio:deviceX}
+    \begin{itemize}
+        \item access to the kernel buffers of data samples/events
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Industrial I/O device and friends}
+%\begin{figure}
+%\includegraphics[width=0.6\linewidth]{iiodev3.png}
+%\end{figure}
+%\end{frame}
+
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O channels}
+\begin{itemize}
+    \item represents a single data source from the device
+    \item \texttt{struct iio\_chan\_spec}
+    \begin{itemize}
+        \item type (\texttt{IIO\_ACCEL}, \texttt{IIO\_INTENSITY})
+        \item channel - a number assigned to the channel
+        \item modifiers (\texttt{IIO\_MOD\_X}, \texttt{IIO\_MOD\_LIGHT\_RED})
+        \item channels attributes are specified as bit masks (\texttt{IIO\_CHAN\_INFO\_SCALE})
+        \item \texttt{scan\_index} - ordering of this sample in the buffer
+        \item \texttt{events} are associated with the channel via \texttt{struct iio\_event\_spec}
+    \end{itemize}
+    \item data access attributes generic form: \texttt{\{direction\}\_\{type\}\_\{index\}\_\{modifier\}\_\{info\}}\begin{itemize}
+        \item scaled angular velocity about the X axis: \texttt{in\_anglvel\_x\_input}
+        \item raw voltage measurement from channel 0: \texttt{in\_voltage0\_raw}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{IIO channel definition for a temperature sensor}
+\begin{lstlisting}[language=C]
+struct iio_chan_spec temp_channel[] = {
+    {
+        .type = IIO_TEMP,
+        .info_mask_separate = BIT(IIO_CHAN_PROCESSED),
+    
+    },
+
+};
+\end{lstlisting}
+\begin{itemize}
+    \item \texttt{/sys/bus/iio/devices/iio:device0/in\_temp\_input}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{IIO channels definition for a 3-axis compass}
+\begin{lstlisting}[language=C]
+struct iio_chan_spec magn_channels[] = {
+    {
+        .type = IIO_MAGN,
+        .info_mask_separate = BIT(IIO_CHAN_INFO_RAW),
+        .info_mask_shared_by_type = BIT(IIO_CHAN_INFO_SCALE),
+        .modified = 1,
+        .channel2 = IIO_MOD_X,
+    
+    },
+    /* Y, Z axis channel definitions */
+
+};
+\end{lstlisting}
+\begin{itemize}
+    \item \texttt{/sys/bus/iio/devices/iio:device0/in\_magn\_x\_raw}
+    \item \texttt{/sys/bus/iio/devices/iio:device0/in\_magn\_scale}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{IIO raw readings callbacks for a compass sensor}
+\begin{lstlisting}[language=C]
+const struct iio_info magn_info = {
+    .read_raw  = magn_read_raw,
+    .write_raw = magn_write_raw,
+
+};
+int magn_read_raw(indio_dev, chan, val, val2, mask)
+{
+    switch (mask) {
+        case IIO_CHAN_INFO_RAW:
+            val = read_magn(chan->address);
+            return IIO_VAL_INT;
+        case IIO_CHAN_INFO_SCALE:
+            *val  = 1;
+            *val2 = 500000;
+        return IIO_VAL_INT_PLUS_MICRO;
+    
+    }
+    return -EINVAL;
+
+}
+/* on IIO device init */
+indio_dev->info = &magn_info;
+
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O buffers}
+\begin{itemize}
+    \item \texttt{struct iio\_buffer}
+    \item on chip hardware FIFO buffers
+    \begin{itemize}
+        \item reduce the load on host CPU
+    \end{itemize}
+    \item software buffers
+    \begin{itemize}
+        \item continuous data capture fired by a trigger
+     \end{itemize}
+    \item data retrieved from the char device node
+    \begin{itemize}
+        \item \texttt{/dev/iio:deviceX}
+     \end{itemize}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O buffers sysfs interface}
+\begin{itemize}
+    \item items placed in buffers are called scans
+    \begin{itemize}
+        \item sysfs meta information + actual sample data in buffer
+    \end{itemize}
+    \item \texttt{/sys/bus/iio/devices/iio:devices/scan\_elements}
+    \begin{itemize}
+        \item per channel \texttt{enable} attribute
+        \begin{itemize}
+            \item \texttt{echo 1 > /sys/.../iio:device0/scan\_elements/in\_accel\_x\_en}
+        \end{itemize}
+        \item per sensor type scans description
+        \begin{itemize}
+            \item \texttt{/sys/.../iio:device0/scan\_elements/in\_accel\_type}
+            \item \texttt{[be|le]:[s|u]bits/storagebitsXrepeat[>>shift]}
+        \end{itemize}
+    \end{itemize}
+    \item \texttt{/sys/bus/iio/devices/iio:devices0/buffer}
+    \begin{itemize}
+        \item \texttt{length} - buffer capacity in number of scans
+        \item \texttt{enable} - activate buffer capture
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Industrial I/O buffer setup example (1)}
+\begin{itemize}
+    \item setup built-in IIO device registration
+    \item buffer support is specified per channel via \texttt{scan\_index}
+    \item 3-axis accelerometer, 12 bits resolution, two 8-bit data registers
+\end{itemize}
+\begin{verbatim}
+    7   6   5   4   3   2   1   0
+  +---+---+---+---+---+---+---+---+
+  |D3 |D2 |D1 |D0 | X | X | X | X | (LOW byte, address 0x06)
+  +---+---+---+---+---+---+---+---+
+
+    7   6   5   4   3   2   1   0
+  +---+---+---+---+---+---+---+---+
+  |D11|D10|D9 |D8 |D7 |D6 |D5 |D4 | (HIGH byte, address 0x07)
+  +---+---+---+---+---+---+---+---+
+\end{verbatim}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Industrial I/O buffer setup example (2)}
+\begin{lstlisting}[language=C]
+struct iio_chan_spec temp_channel[] = {
+    {
+        .type = IIO_ACCEL,
+        /* */
+        .scan_index = 0,
+        .scan_type = {
+            .sign = 'u',
+            .realbits = 12, /* valid data bits */
+            .storagebits = 16,
+            .shift = 4,
+            .endianness = IIO_CPU,
+        
+        },
+    
+    },
+    /* Y, Z axis channels definition */
+
+};
+
+\end{lstlisting}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O triggers}
+\begin{itemize}
+    \item alternative to polling for data available
+    \item trigger readings based on an external interrupt source
+    \begin {itemize}
+        \item hardware interrupt (IRQ pins)
+        \item software interrupts (periodic timers, sysfs triggers)
+    \end{itemize}
+    \item multiple consumers - a trigger may be used by multiple devices
+    \item \texttt{iio\_trigger\_alloc} / \texttt{iio\_trigger\_free}
+    \item \texttt{iio\_trigger\_register} / \texttt{iio\_trigger\_unregister}
+    \item \texttt{struct iio\_trigger\_ops}
+    \begin{itemize}
+        \item \texttt{set\_trigger\_state} - trigger config (e.g. configure interrupts)
+        \item \texttt{validate\_device}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O triggers sysfs interface}
+\begin{itemize}
+    \item \texttt{/sys/bus/iio/devices/triggerX}
+    \begin{itemize}
+        \item \texttt{name} - used to identify the driver
+        \item various parameters - depending on trigger source
+    \end{itemize}
+    \item \texttt{/sys/bus/iio/devices/iio:device0/trigger/}
+    \begin{itemize}
+        \item \texttt{current\_trigger} - trigger associated with this device
+        \item link between triggers and buffers is done with triggered buffers
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O software triggers}
+\begin{itemize}
+    \item interrupt trigger
+    \item sysfs trigger
+    \item proposal for configfs interface to create triggers
+    \begin{itemize}
+        \item \texttt{/config/iio/triggers}
+        \item \texttt{mkdir hrtimer}
+        \item \texttt{mkdir hrtimer/trigger0}
+        \item work in progress
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O triggered buffers}
+\begin{itemize}
+    \item \texttt{iio\_triggered\_buffer\_setup}, \texttt{iio\_triggered\_buffer\_cleanup}
+    \begin{itemize}
+        \item @h - top half poll function
+        \item @thread - bottom half poll function
+    \end{itemize}
+    \item \texttt{buffer\_setup\_ops}
+        \begin{itemize}
+            \item \texttt{.preenable} - user defined (usually powers on chip)
+            \item \texttt{.postenable} - attaches poll functions to the trigger
+            \item \texttt{.predisable} - detaches poll functions to the trigger
+            \item \texttt{.postdisable} - user defined (usually powers off chip)
+        \end{itemize}
+    \item \texttt{iio\_pollfunc\_storetime}
+    \begin{itemize}
+        \item predefined top half function that stores the current time stamp
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Industrial I/O triggered buffers setup}
+\begin{lstlisting}[language=bash]
+# go to IIO dir
+$ cd /sys/bus/iio/devices/
+# list available triggers
+$ ls trigger*
+trigger0 trigger1
+# set trigger0 as current trigger for device0
+$ echo trigger0 > iio:device0/trigger/current_trigger
+# activate channels
+$ echo 1 > io:device0/scan_elements/in_magn_z_en
+$ echo 1 > io:device0/scan_elements/in_magn_y_en
+$ echo 1 > io:device0/scan_elements/in_magn_z_en
+# check buffer capacity (number of samples)
+$ cat iio:device0/buffer/length
+2
+# final step: enable buffer
+$ echo 1 > iio:device0/buffer/enable
+\end{lstlisting}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Industrial I/O events}
+\begin{itemize}
+    \item pass out of band information to user space
+    \item correspond to some thresholds based on sensor raw readings
+    \begin{itemize}
+        \item direct crossing voltage threshold
+        \item crossing a rate of change threshold
+        \item entering/leaving an activity state
+   \end{itemize}
+   \item configured via sysfs interface
+   \item information retrieved via a special fd obtained from /dev/iio:deviceX
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Events support for a proximity sensor (1)}
+\begin{lstlisting}[language=C]
+
+struct iio_event_spec prox_event = {
+    .type = IIO_EV_TYPE_THRESHOLD,
+    .dir  = IIO_EV_DIR_EITHER, /* rising or falling */
+    .mask_separate = IIO_EV_INFO_ENABLE | IIO_EV_INFO_VALUE,
+
+};
+
+struct iio_chan_spec prox_channels[] = {
+    .type = IIO_PROXIMITY,
+    /* .. */
+    .event_spec = &prox_event,
+
+};
+\end{lstlisting}
+\begin{itemize}
+    \item echo 100 \textgreater /sys/.../iio:device0/events/in\_proximity\_thresh\_rising\_value
+    \item echo 1 \textgreater /sys/.../iio:device0/events/in\_proximity\_thresh\_rising\_en
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}[fragile]
+\frametitle{Events support for a proximity sensor(2)}
+\begin{lstlisting}[language=C]
+
+static const struct iio_info prox_info = {
+     /* ... */
+    .read_event_value    = prox_read_event_value,
+    .write_event_value   = prox_write_event_value,
+    .read_event_config   = prox_read_event_config,
+    .write_event_config  = prox_write_event_config,
+
+};
+
+/* on IIO device init */
+indio_dev->info = &prox_info;
+
+\end{lstlisting}
+\begin{itemize}
+    \item callbacks used for handling events sysfs reads/writes operations
+    \item \{read/write\}\_event\_config, handles events enabling
+    \item \{read/write\}\_event\_value, handles events configuration
+\end{itemize}
+\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{IIO events path}
+%\begin{figure}
+%\includegraphics[width=0.7\linewidth]{events5.png}
+%\end{figure}
+%\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Delivering IIO events to user space}
+\begin{itemize}
+    \item usually handled using threaded IRQs
+    \begin{itemize}
+        \item because bus access functions might sleep
+    \end{itemize}
+    \item \texttt{iio\_push\_events(indio\_dev, ev\_code, timestamp)}
+    \begin{itemize}
+        \item event code contains channel type, modifier, direction, event type
+        \item macros for packing/unpacking event codes
+        \begin{itemize}
+            \item \texttt{IIO\_MOD\_EVENT\_CODE}
+            \item \texttt{IIO\_EVENT\_CODE\_EXTRACT}
+        \end{itemize}
+    \end{itemize}
+    \item applications can read events via a special file descriptor
+    \item ioctl command \texttt{IIO\_GET\_EVENT\_FD\_IOCTL} on \texttt{/dev/iio:deviceX} fd
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Industrial I/O triggered events}
+%\begin{itemize}
+%    * useful for chips that don't have their own interrupt sources
+%        * it allows using IIO triggers to generate period events
+%
+
+%\end{itemize}
+%\end{frame}
+
+%\begin{frame}
+%\frametitle{Testing modules and applications}
+%\begin{itemize}
+%\item pics
+%\end{itemize}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{Industrial I/O testing utilities}
+\begin{itemize}
+    \item \texttt{tools/iio/}
+    \begin{itemize}
+        \item \texttt{generic\_buffer.c}
+        \item \texttt{iio\_event\_monitor.c}
+        \item \texttt{lsiio.c}
+    \end{itemize}
+    \item IIO dummy module
+    \item IIO event generator module
+\end{itemize}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Development setup}
+%\begin{itemize}
+
+%\end{itemize}
+%\end{frame}
+
+\begin{frame}
+\frametitle{New things in IIO}
+\begin{itemize}
+    \item chemical sensors
+    \item potentiometer
+    \item software triggers
+    \item heart rate monitors
+    \item input - IIO bridge
+    \item IIO DMA buffer
+    \item IIO dummy module move out of staging
+\end{itemize}
+\end{frame}
+
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{Multiple Columns}
+%\begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+%\column{.45\textwidth} % Left column and width
+%\textbf{Heading}
+%\begin{enumerate}
+%\item Statement
+%\item Explanation
+%\item Example
+%\end{enumerate}
+
+%\column{.5\textwidth} % Right column and width
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, %porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+
+%\end{columns}
+%\end{frame}
+
+%------------------------------------------------
+%\section{Second Section}
+%------------------------------------------------
+
+
+
+%------------------------------------------------
+
+%\begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+%\frametitle{Citation}
+%An example of the \verb|\cite| command to cite within the presentation:\\~%
+
+%This statement requires citation \cite{p1}.
+%\end{frame}
+
+%------------------------------------------------
+
+%\begin{frame}
+%\frametitle{References}
+%\footnotesize{
+%\begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+%\bibitem[Smith, 2012]{p1} John Smith (2012)
+%\newblock Title of the publication
+%\newblock \emph{Journal Name} 12(3), 45 -- 678.
+%\end{thebibliography}
+%
+}
+%\end{frame}
+
+%------------------------------------------------
+
+\begin{frame}
+\frametitle{Q \& A}
+%\begin{columns}[t] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+
+%\column{.8\textwidth} % Left column and width
+%\textbf{Heading}
+%\begin{enumerate}
+%\item Statement
+%\item Explanation
+%\item Example
+%\end{enumerate}
+%\begin{figure}
+%\includegraphics[width=0.4\linewidth]{iio4.png}
+%\end{figure}
+
+%\column{.3\textwidth} % Right column and width
+\centering \texttt{linux\text{-}iio@vger.kernel.org}
+%\texttt{linux\text{-}iio@vger.kernel.org}
+%\end{columns}
+\end{frame}
+
+%\begin{frame}
+%\Huge{\centerline{Q \& A}}
+%\begin{figure}
+%\includegraphics[width=0.8\linewidth]{iio.png}
+%\end{figure}
+%\end{frame}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}

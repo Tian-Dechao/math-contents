@@ -1,0 +1,21 @@
+\frametitle{Events support for a proximity sensor(2)}
+\begin{lstlisting}[language=C]
+
+static const struct iio_info prox_info = {
+     /* ... */
+    .read_event_value    = prox_read_event_value,
+    .write_event_value   = prox_write_event_value,
+    .read_event_config   = prox_read_event_config,
+    .write_event_config  = prox_write_event_config,
+
+};
+
+/* on IIO device init */
+indio_dev->info = &prox_info;
+
+\end{lstlisting}
+\begin{itemize}
+    \item callbacks used for handling events sysfs reads/writes operations
+    \item \{read/write\}\_event\_config, handles events enabling
+    \item \{read/write\}\_event\_value, handles events configuration
+\end{itemize}

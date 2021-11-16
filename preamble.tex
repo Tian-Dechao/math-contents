@@ -1,0 +1,107 @@
+\documentclass[12pt, letterpaper]{article} 
+\pagestyle{plain}
+\usepackage[margin=0.8in,includefoot=false,
+            footskip=0.4in,nohead=true]{geometry}
+\usepackage{layouts}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{subfigure}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{enumitem}
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+%\usepackage[sectionbib,round]{natbib}
+% format citation
+%\bibliographystyle{abbrvnat}
+%\bibliographystyle{nihunsrt}
+% version 2
+%\usepackage{apacite}
+%\usepackage[sectionbib,round]{natbib}
+%\setcitestyle{aysep={},yysep={;}} % remove comma in Author, Year to meet GR style
+%\usepackage[numbers,sort&compress]{natbib}
+% remove parentheses enclosing year in reference list
+\usepackage{verbatim}
+\usepackage{authblk}
+\usepackage[frak=mma,scr=rsfs,cal=mma]{mathalfa}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{b}{n}
+\usepackage[pdftex]{graphicx}
+\usepackage{wrapfig}
+%\usepackage{indentfirst}
+\usepackage{tabularx}
+\usepackage[margin=6pt,font={sf,footnotesize},labelfont=bf]{caption}
+\usepackage{times}
+\usepackage{amsmath}
+\usepackage{amssymb}
+%\usepackage{bbm}
+\usepackage{dsfont}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,linkcolor=linkcolour,citecolor=linkcolour,filecolor=linkcolour,urlcolor=linkcolour}
+\usepackage{sectsty}
+\usepackage{bm}
+\usepackage{multirow} % merge rows in a table
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{soul}
+% indent the first paragraph after section
+\usepackage{indentfirst}  
+\usepackage{longtable}
+%\renewcommand{\baselinestretch}{1.4} 
+%\addtolength{\textfloatsep}{-0.1in}
+%\addtolength{\abovecaptionskip}{-0.0in}
+\sectionfont{\large \sffamily\bfseries}
+\subsectionfont{\normalsize \sffamily\bfseries}
+\subsubsectionfont{\it \sffamily}
+\setlength{\bibsep}{1pt}
+\setlist[itemize]{noitemsep, topsep=2pt, labelsep=3mm} %leftmargin=*
+\setlist[enumerate]{noitemsep, topsep=2pt, labelsep=3mm} %leftmargin=*
+
+\let\olditemize =\itemize
+\let\oldenumerate =\enumerate
+\let\olddescription =\description
+\def\Nospacing{\itemsep=1pt\topsep=0pt\partopsep=0pt%
+\parskip=0pt\parsep=0pt}
+\def\noitemsep{
+\renewenvironment{itemize}{\olditemize\Nospacing}{\endlist}
+\renewenvironment{enumerate}{\oldenumerate\Nospacing}{\endlist}
+\renewenvironment{description}{\olddescription\Nospacing}{\endlist}
+%\setlength{\abovedisplayskip}{5pt}
+%\setlength{\belowdisplayskip}{5pt}
+}
+\makeatletter
+\renewcommand{\abstractname}{\normalsize \sffamily\bfseries Abstract}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\renewcommand{\contentsname}{Supplementary Methods}
+\renewcommand{\listfigurename}{Supplementary Figures}
+\renewcommand{\listtablename}{Supplementary Tables}
+
+\newcommand{\argmin}{\text{argmin}}
+\DeclareMathOperator*{\ind}{\mathds{1}}
+\DeclareMathOperator{\vect}{vect}
+\DeclareMathOperator{\tr}{tr}
+
+\renewcommand\AB@affilsepx{\quad\protect\Affilfont} % one line affilination
+
+\def \bA {\bm A}
+\def \bD {\bm D}
+\def \bS {\bm S}
+\def \bE {\bm E}
+\def \bX {\bm X}
+
+\def\cc{\textcolor{red}}
+\def\CC{\textcolor{red}}
+\def\cb{\textcolor{blue}}
+\def\GG{\textcolor{BlueGreen}}
+
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{0.8\baselineskip}{0.5\baselineskip}
+\titlespacing*{\subsection}{0pt}{0.6\baselineskip}{0.3\baselineskip}
+\titlespacing*{\subsubsection}{0pt}{0.3\baselineskip}{0.1\baselineskip}
+
+% delete these lines when submitting 
+\usepackage{setspace}
+\doublespacing
