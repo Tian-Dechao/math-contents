@@ -1,5 +1,7 @@
 ## make file
 makefile
+## vim swp
+.*.swp
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
