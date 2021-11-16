@@ -1,3 +1,5 @@
+## make file
+makefile
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
