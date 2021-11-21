@@ -2,6 +2,96 @@ This is a test!
 \begin{equation*}
 X - \mu = L F + \epsilon
 \end{equation*}
+\Large
+\begin{itemize}
+\item Covariance ($Cov$) and correlation ($corr$) are related parameters that indicate the extent to which two random variables \textbf{co-vary}
+\item Correlation is the covariance of standardized variables.  
+\end{itemize}
+\begin{equation*}
+Cov(X, Y) = E[(X-\mu_X)(Y-\mu_Y)]
+\end{equation*}
+\begin{equation*}
+corr(X, Y) =  \frac{Cov(X, Y)}{sd(X) sd(Y)}
+\end{equation*}
+
+\begin{align*}
+X_1 &= l_{11} F_1 + l_{12}F_2 + \cdots + l_{1m}F_m + \epsilon_{1} \\
+X_2 &= l_{21} F_1 + l_{22}F_2 + \cdots + l_{2m}F_m + \epsilon_{2} \\
+&\vdots  \\
+X_p &= l_{p1} F_1 + l_{p2}F_2 + \cdots + l_{pm}F_m + \epsilon_{p} 
+\end{align*}
+
+\begin{equation*}
+\underset{(p\times 1)}{\bX} = \underset{(p\times m)}{\bL} \times \underset{(m \times 1)}{\bF} + \underset{(p \times 1)}{\be}
+\end{equation*}
+
+$\bL$: loading of factors with $l_{ij}$ represents association between $X_i$ and hidden factor $F_j$.
+
+$\bF$: $m$ unknown factors with variance 1
+%$Cov(\bF) = \begin{pmatrix}
+%1 & 0 & \cdots & 0 \\
+%0 & 1 &  & \\
+% & & \vdots& \\
+%& \cdots & &1 \\
+%\end{pmatrix} .$
+
+$\be$: specific errors, where $\epsilon_i$ represents random error $+$ $X_i$ specific factors.
+
+
+PCA
+\begin{align*}
+ C_1 &= a_{11}x_1 + a_{12}x_2 + \cdots + a_{1p}x_p\\
+ C_2 &= a_{21}x_1 + a_{22}x_2 + \cdots + a_{2p}x_p\\
+  & \cdots\cdots \\
+ C_p &= a_{p1}x_1 + a_{p2}x_2 + \cdots + a_{pp}x_p\\
+\end{align*}
+
+\begin{align*}
+x_1 &= a_{11} C_1 + a_{21}C_2 + \cdots  + a_{k1}C_k + \cdots + a_{p1}C_p \\
+x_2 &= a_{12} C_1 + a_{22}C_2 + \cdots  + a_{k2}C_k + \cdots + a_{p2}C_p \\
+  & \cdots\cdots \\
+x_p &= a_{1p} C_1 + a_{2p}C_2 + \cdots  + a_{kp}C_k + \cdots + a_{pp}C_p \\
+\end{align*}
+
+\begin{align*}
+x_1 &= a_{11} C_1 + a_{21}C_2 + \cdots  + a_{k1}C_k + \delta_1 \\
+x_2 &= a_{12} C_1 + a_{22}C_2 + \cdots  + a_{k2}C_k + \delta_2 \\
+  & \cdots\cdots \\
+x_p &= a_{1p} C_1 + a_{2p}C_2 + \cdots  + a_{kp}C_k + \delta_p \\
+\end{align*}
+
+$Var(C_1) \ge Var(C_2) \ge \cdots \ge Var(C_k)$  
+\small
+\begin{align*}
+x_1 &= a_{11}  \sqrt{Var(C_1)} \frac{C_1}{\sqrt{Var(C_1)} } + a_{21} \sqrt{Var(C_2)} \frac{C_2}{\sqrt{Var(C_2)}} + \cdots  + a_{k1} \sqrt{Var(C_k)} \frac{C_k}{\sqrt{Var(C_k)}} + \delta_1  
+\end{align*}
+
+\Large
+\begin{align*}
+x_1 &= l_{11} F_1 + l_{12} F_2 + \cdots + l_{1k} F_k + \delta_1 \\
+x_2 &= l_{21} F_1 + l_{22} F_2 + \cdots + l_{2k} F_k + \delta_2 \\
+  & \cdots\cdots \\
+x_p &= l_{p1} F_1 + l_{p2} F_2 + \cdots + l_{pk} F_k + \delta_p \\
+\end{align*}
+
+$F_{j} = \frac{C_j}{\sqrt{Var(C_j)}}$
+
+$Var(F_1) = Var(F_2) = \cdots = Var(F_p) =1$  
+
+$l_{ij} = a_{ij} \sqrt{Var(C_j)}$
+
+$Var(X_p) = Var(l_{p1} F_1 + l_{p2} F_2 + \cdots + l_{pk} F_k) + Var(\delta_p)$
+
+$L_{ij}$ is the factor laoding of the $X_i$ on $F_j$ 
+
+Higher $|L_{ij}|$, stronger association between $X_i$ and $F_j$
+
+\begin{equation*}
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
 
 \begin{equation*}
 A
@@ -11,9 +101,67 @@ A
 A
 \end{equation*}
 
+\begin{equation*}
+A
+\end{equation*}
 
 \begin{equation*}
 A
 \end{equation*}
 
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
+
+\begin{equation*}
+A
+\end{equation*}
 
